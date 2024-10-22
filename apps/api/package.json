@@ -16,7 +16,7 @@
     "@cubeflair/auth": "workspace:*",
     "@effect/opentelemetry": "^0.38.1",
     "@effect/platform": "^0.68.2",
-    "@effect/schema": "^0.75.3",
+    "@effect/schema": "^0.75.5",
     "@hono/effect-validator": "^1.0.1",
     "@microlabs/otel-cf-workers": "^1.0.0-rc.48",
     "@opentelemetry/api": "^1.9.0",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240925.0",
     "@types/ua-parser-js": "^0.7.39",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "wrangler": "^3.80.00"
   }
 }
