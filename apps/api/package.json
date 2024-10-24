@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@cubeflair/auth": "workspace:*",
-    "@effect/opentelemetry": "^0.38.1",
+    "@effect/opentelemetry": "^0.39.2",
     "@effect/platform": "^0.68.2",
     "@effect/schema": "^0.75.5",
     "@hono/effect-validator": "^1.0.1",
