@@ -27,7 +27,7 @@
     "@rectangular-labs/db": "workspace:*",
     "arctic": "^2.0.0-next.9",
     "effect": "^3.9.1",
-    "hono": "^4.6.3",
+    "hono": "^4.6.6",
     "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {
