@@ -1,9 +1,0 @@
-{
-  "extends": "@rectangular-labs/typescript/tsconfig.base.json",
-  "compilerOptions": {
-    "module": "ESNext",
-    /* Bundler mode */
-    "allowImportingTsExtensions": true
-  },
-  "include": ["vite.config.ts"]
-}

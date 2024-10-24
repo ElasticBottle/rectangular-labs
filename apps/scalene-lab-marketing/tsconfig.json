@@ -1,0 +1,6 @@
+{
+  "extends": ["@rectangular-labs/typescript/tsconfig.base", "astro/tsconfigs/strictest"],
+  "compilerOptions": {
+    "strictNullChecks": true
+  }
+}

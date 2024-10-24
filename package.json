@@ -1,5 +1,5 @@
 {
-  "name": "parody",
+  "name": "rectangular-labs",
   "private": true,
   "workspaces": ["packages/*", "apps/*", "infra/*", "tooling/*"],
   "scripts": {
