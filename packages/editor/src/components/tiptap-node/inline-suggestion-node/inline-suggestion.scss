@@ -1,0 +1,6 @@
+.tiptap.ProseMirror {
+  [data-inline-suggestion]::after {
+    content: attr(data-inline-suggestion);
+    color: var(--muted-foreground);
+  }
+}

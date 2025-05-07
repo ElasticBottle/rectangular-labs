@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.11",
+    "@hono/arktype-validator": "^2.0.1",
     "@rectangular-labs/auth": "workspace:*",
     "@rectangular-labs/db": "workspace:*",
     "@rectangular-labs/env": "workspace:*",

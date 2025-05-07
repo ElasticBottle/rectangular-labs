@@ -11,3 +11,5 @@ export const niceClassificationModel = google("gemini-2.5-pro-preview-03-25");
 
 // Model for Goods & Services recommendations (structured output)
 export const goodsServicesModel = google("gemini-2.5-pro-preview-03-25");
+
+export const completionModel = google("gemini-2.0-flash-001");

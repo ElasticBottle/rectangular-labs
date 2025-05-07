@@ -12,6 +12,7 @@ import {
 } from "loro-prosemirror";
 
 const doc = new LoroDoc<{
+  // biome-ignore lint/suspicious/noExplicitAny: this is a workaround to avoid type errors
   doc: LoroMap<any>;
   data: LoroMap<Record<string, unknown>>;
 }>();

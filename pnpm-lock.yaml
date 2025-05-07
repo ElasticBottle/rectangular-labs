@@ -41,6 +41,9 @@ importers:
       '@ai-sdk/google':
         specifier: ^1.2.11
         version: 1.2.11(zod@3.24.2)
+      '@hono/arktype-validator':
+        specifier: ^2.0.1
+        version: 2.0.1(arktype@2.1.19)(hono@4.7.6)
       '@rectangular-labs/auth':
         specifier: workspace:*
         version: link:../../packages/auth
@@ -1253,6 +1256,12 @@ packages:
 
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
+  '@hono/arktype-validator@2.0.1':
+    resolution: {integrity: sha512-Z4PQFtzgbGneBap+TTViRIBAoUWbwEwg8PaKNqALAP6z9N2ksJI81PfcsSQNUzwtrn8LipkMvBb8/D9Pei2GJw==}
+    peerDependencies:
+      arktype: ^2.0.0-dev.14
+      hono: '*'
 
   '@hookform/resolvers@5.0.1':
     resolution: {integrity: sha512-u/+Jp83luQNx9AdyW2fIPGY6Y7NG68eN2ZW8FOJYL+M0i4s49+refdJdOp/A9n9HFQtQs3HIDHQvX3ZET2o7YA==}
@@ -7348,6 +7357,11 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
 
   '@floating-ui/utils@0.2.9': {}
+
+  '@hono/arktype-validator@2.0.1(arktype@2.1.19)(hono@4.7.6)':
+    dependencies:
+      arktype: 2.1.19
+      hono: 4.7.6
 
   '@hookform/resolvers@5.0.1(react-hook-form@7.55.0(react@19.1.0))':
     dependencies:

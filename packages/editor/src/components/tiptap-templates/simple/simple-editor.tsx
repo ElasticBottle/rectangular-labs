@@ -21,6 +21,7 @@ import "../../tiptap-node/code-block-node/code-block-node.scss";
 import "../../tiptap-node/list-node/list-node.scss";
 import "../../tiptap-node/image-node/image-node.scss";
 import "../../tiptap-node/paragraph-node/paragraph-node.scss";
+import "../../tiptap-node/inline-suggestion-node/inline-suggestion.scss";
 
 import { ThemeToggle } from "@rectangular-labs/ui/components/theme-provider";
 // --- Tiptap UI ---
@@ -49,6 +50,7 @@ import { useWindowSize } from "@rectangular-labs/ui/hooks/use-window-size";
 // --- Styles ---
 import "./simple-editor.scss";
 import { Separator } from "@rectangular-labs/ui/components/ui/separator";
+import { InlineSuggestion } from "../../tiptap-extension/inline-suggestion-extension";
 import { LoroCRDT } from "../../tiptap-extension/loro-extension";
 
 const MainToolbarContent = ({
@@ -153,7 +155,11 @@ const MobileToolbarContent = ({
   </>
 );
 
-export function SimpleEditor() {
+export function SimpleEditor({
+  onCompletion,
+}: {
+  onCompletion: (existingText: string) => Promise<string>;
+}) {
   const isMobile = useIsMobile();
   const windowSize = useWindowSize();
   const [mobileView, setMobileView] = React.useState<
@@ -208,7 +214,6 @@ export function SimpleEditor() {
       Typography,
       Superscript,
       Subscript,
-
       Selection,
       // ImageUploadNode.configure({
       //   accept: "image/*",
@@ -220,6 +225,9 @@ export function SimpleEditor() {
       TrailingNode,
       Link.configure({ openOnClick: false }),
       LoroCRDT,
+      InlineSuggestion.configure({
+        fetchAutocompletion: onCompletion,
+      }),
     ],
     // content: content,
   });

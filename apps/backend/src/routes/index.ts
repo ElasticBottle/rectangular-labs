@@ -6,13 +6,15 @@ import { logger } from "hono/logger";
 import { dbContext } from "../lib/hono";
 import { authRouter } from "./api/auth/[...route]";
 import { chatRouter } from "./api/chat/route";
+import { completionRouter } from "./api/completion/route";
 
 const app = new Hono()
   .use(logger())
   .use(contextStorage())
   .use(dbContext)
   .route("/", authRouter)
-  .route("/", chatRouter);
+  .route("/", chatRouter)
+  .route("/", completionRouter);
 
 showRoutes(app, {
   verbose: true,
