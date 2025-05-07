@@ -7,7 +7,7 @@ export const getSession = async () => {
     return { user: null };
   }
   const session = await response.value.json();
-  return { user: session.properties };
+  return { user: session.userSubject };
 };
 
 export const authorizeUrl = backend.api.auth.authorize.$url().href;

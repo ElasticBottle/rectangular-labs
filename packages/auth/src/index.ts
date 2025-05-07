@@ -1,18 +1,11 @@
 import { issuer } from "@openauthjs/openauth";
-import { CodeProvider } from "@openauthjs/openauth/provider/code";
 import { DiscordProvider } from "@openauthjs/openauth/provider/discord";
 import { GithubProvider } from "@openauthjs/openauth/provider/github";
-import { CodeUI } from "@openauthjs/openauth/ui/code";
 import { Select } from "@openauthjs/openauth/ui/select";
 import { handle } from "hono/aws-lambda";
 import { env } from "./env";
+import { getUserProfile } from "./provider/get-profile";
 import { subjects } from "./subject";
-
-async function getUser(_email: string) {
-  await Promise.resolve();
-  // Get user from database and return user ID
-  return "123";
-}
 
 const authApp = issuer({
   subjects,
@@ -30,14 +23,6 @@ const authApp = issuer({
     },
   }),
   providers: {
-    code: CodeProvider(
-      CodeUI({
-        sendCode: async (email, code) => {
-          await Promise.resolve();
-          console.log(email, code);
-        },
-      }),
-    ),
     github: GithubProvider({
       clientID: env().GITHUB_CLIENT_ID,
       clientSecret: env().GITHUB_CLIENT_SECRET,
@@ -54,32 +39,37 @@ const authApp = issuer({
     }),
   },
   theme: {
-    title: "Rectangular Labs",
+    title: "Galleo",
     primary: {
       dark: "#000000",
       light: "#FFFFFF",
     },
     radius: "sm",
+    favicon: "https://dev.galleoai.com/galleo-favicon.svg",
+    logo: "https://dev.galleoai.com/galleo-favicon.svg",
+    font: {
+      family: "Inter",
+      scale: "1",
+    },
   },
   success: async (ctx, value) => {
-    if (value.provider === "code") {
-      console.log("value", value);
-      console.log("value.claims", value.claims);
-      return ctx.subject("user", {
-        id: await getUser(value.claims.email ?? ""),
-        name: value.claims.name ?? "",
-        email: value.claims.email ?? "",
-        image: value.claims.picture ?? "",
-      });
+    const userProfileResult = await getUserProfile(value);
+
+    if (!userProfileResult.ok) {
+      console.error(
+        "Failed to fetch user profile:",
+        userProfileResult.error.message,
+      );
+      // Return an actual Response object for errors
+      return new Response(
+        `Failed to fetch user profile: ${userProfileResult.error.message}`,
+        { status: 500 },
+      );
     }
-    console.log("ctx.", value.tokenset.refresh);
-    // throw new Error("Invalid provider");
-    return ctx.subject("user", {
-      id: await getUser(""),
-      name: "",
-      email: "",
-      image: "",
-    });
+
+    const userProfile = userProfileResult.value;
+
+    return ctx.subject("user", userProfile);
   },
 });
 

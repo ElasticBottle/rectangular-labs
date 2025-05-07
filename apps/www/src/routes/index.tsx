@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
   component: ChatInterface,
   loader: async () => {
     try {
-      const response = await backend.api.$get();
+      const response = await backend.api.auth.me.$get();
       return response.json();
     } catch (error) {
       console.error("Failed to fetch initial data:", error);

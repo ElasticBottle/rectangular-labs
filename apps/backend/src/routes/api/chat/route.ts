@@ -1,11 +1,11 @@
 import { streamText } from "ai";
 import { Hono } from "hono";
 import { stream } from "hono/streaming";
-import { backgroundResearch } from "../../lib/ai/business-research";
-import { markFilingRecommendation } from "../../lib/ai/mark-filing-recommendation";
-import { mainAgentModel } from "../../lib/ai/models";
-import { niceClassification } from "../../lib/ai/nice-classification";
-import { relevantGoodsServices } from "../../lib/ai/relevant-goods-services";
+import { backgroundResearch } from "../../../lib/ai/business-research";
+import { markFilingRecommendation } from "../../../lib/ai/mark-filing-recommendation";
+import { mainAgentModel } from "../../../lib/ai/models";
+import { niceClassification } from "../../../lib/ai/nice-classification";
+import { relevantGoodsServices } from "../../../lib/ai/relevant-goods-services";
 
 // Define the system prompt
 const systemPrompt = `You are an expert Singapore trademark law assistant working for a prestigious law firm.
@@ -32,51 +32,53 @@ Use markdown for formatting the email draft.
 Always use the tools at your disposal before asking the lawyer for more information.`;
 
 // Define the POST route for chat requests
-export const chatRouter = new Hono().post("/", async (c) => {
-  // const { messages } = c.req.valid("json");
-  const messages = await c.req.json();
+export const chatRouter = new Hono()
+  .basePath("/api/chat")
+  .post("/", async (c) => {
+    // const { messages } = c.req.valid("json");
+    const messages = await c.req.json();
 
-  console.log("messages", messages);
+    console.log("messages", messages);
 
-  // Define and import actual tools
-  const tools = {
-    backgroundResearch: backgroundResearch,
-    niceClassification: niceClassification,
-    relevantGoodsServices: relevantGoodsServices,
-    markFilingRecommendation: markFilingRecommendation,
-  };
+    // Define and import actual tools
+    const tools = {
+      backgroundResearch: backgroundResearch,
+      niceClassification: niceClassification,
+      relevantGoodsServices: relevantGoodsServices,
+      markFilingRecommendation: markFilingRecommendation,
+    };
 
-  try {
-    const result = streamText({
-      model: mainAgentModel, // Use the main agent model
-      system: systemPrompt,
-      messages: messages.messages,
-      tools: tools,
-      maxSteps: 12,
-      onFinish: (result) => {
-        console.log("result", result);
-      },
-      onError: (error) => {
-        console.error("Error calling streamText:", error);
-      },
-      temperature: 0.2,
-    });
-
-    const dataStream = result.toDataStream({
-      sendUsage: true,
-      sendReasoning: true,
-      sendSources: true,
-    });
-    c.header("Content-Type", "text/plain; charset=utf-8");
-    return stream(c, async (stream) => {
-      stream.onAbort(() => {
-        console.log("Stream aborted!");
+    try {
+      const result = streamText({
+        model: mainAgentModel, // Use the main agent model
+        system: systemPrompt,
+        messages: messages.messages,
+        tools: tools,
+        maxSteps: 12,
+        onFinish: (result) => {
+          console.log("result", result);
+        },
+        onError: (error) => {
+          console.error("Error calling streamText:", error);
+        },
+        temperature: 0.2,
       });
-      await stream.pipe(dataStream);
-    });
-  } catch (error) {
-    console.error("Error calling streamText:", error);
-    // Consider returning a more informative error response
-    return c.json({ error: "Failed to process chat request" }, 500);
-  }
-});
+
+      const dataStream = result.toDataStream({
+        sendUsage: true,
+        sendReasoning: true,
+        sendSources: true,
+      });
+      c.header("Content-Type", "text/plain; charset=utf-8");
+      return stream(c, async (stream) => {
+        stream.onAbort(() => {
+          console.log("Stream aborted!");
+        });
+        await stream.pipe(dataStream);
+      });
+    } catch (error) {
+      console.error("Error calling streamText:", error);
+      // Consider returning a more informative error response
+      return c.json({ error: "Failed to process chat request" }, 500);
+    }
+  });
