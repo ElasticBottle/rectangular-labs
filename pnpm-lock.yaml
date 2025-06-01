@@ -40,7 +40,7 @@ importers:
     dependencies:
       '@ai-sdk/google':
         specifier: ^1.2.18
-        version: 1.2.18(zod@3.25.42)
+        version: 1.2.18(zod@3.25.43)
       '@rectangular-labs/auth':
         specifier: workspace:*
         version: link:../../packages/auth
@@ -55,7 +55,7 @@ importers:
         version: link:../../packages/result
       ai:
         specifier: ^4.3.16
-        version: 4.3.16(react@19.1.0)(zod@3.25.42)
+        version: 4.3.16(react@19.1.0)(zod@3.25.43)
       arktype:
         specifier: ^2.1.20
         version: 2.1.20
@@ -80,7 +80,7 @@ importers:
     dependencies:
       '@ai-sdk/react':
         specifier: ^1.2.12
-        version: 1.2.12(react@19.1.0)(zod@3.25.42)
+        version: 1.2.12(react@19.1.0)(zod@3.25.43)
       '@rectangular-labs/backend':
         specifier: workspace:*
         version: link:../backend
@@ -386,8 +386,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.1.5(@types/react@19.1.6))(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod:
-        specifier: ^3.25.42
-        version: 3.25.42
+        specifier: ^3.25.43
+        version: 3.25.43
     devDependencies:
       '@types/react':
         specifier: ^19.1.6
@@ -5859,44 +5859,47 @@ packages:
   zod@3.25.42:
     resolution: {integrity: sha512-PcALTLskaucbeHc41tU/xfjfhcz8z0GdhhDcSgrCTmSazUuqnYqiXO63M0QUBVwpBlsLsNVn5qHSC5Dw3KZvaQ==}
 
+  zod@3.25.43:
+    resolution: {integrity: sha512-KrQFEkfox9WLfYCOksqEWjf97QdgSC1YJSqxJxnWz0l+BW8mN2PQ+yjshL8RC7RC5p5YOlUCLyTDNaf++QbPtA==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
 
-  '@ai-sdk/google@1.2.18(zod@3.25.42)':
+  '@ai-sdk/google@1.2.18(zod@3.25.43)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.42)
-      zod: 3.25.42
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.43)
+      zod: 3.25.43
 
-  '@ai-sdk/provider-utils@2.2.8(zod@3.25.42)':
+  '@ai-sdk/provider-utils@2.2.8(zod@3.25.43)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
       nanoid: 3.3.10
       secure-json-parse: 2.7.0
-      zod: 3.25.42
+      zod: 3.25.43
 
   '@ai-sdk/provider@1.1.3':
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/react@1.2.12(react@19.1.0)(zod@3.25.42)':
+  '@ai-sdk/react@1.2.12(react@19.1.0)(zod@3.25.43)':
     dependencies:
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.42)
-      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.42)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.43)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.43)
       react: 19.1.0
       swr: 2.3.3(react@19.1.0)
       throttleit: 2.1.0
     optionalDependencies:
-      zod: 3.25.42
+      zod: 3.25.43
 
-  '@ai-sdk/ui-utils@1.2.11(zod@3.25.42)':
+  '@ai-sdk/ui-utils@1.2.11(zod@3.25.43)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.42)
-      zod: 3.25.42
-      zod-to-json-schema: 3.24.3(zod@3.25.42)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.43)
+      zod: 3.25.43
+      zod-to-json-schema: 3.24.3(zod@3.25.43)
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -6582,8 +6585,8 @@ snapshots:
       express-rate-limit: 7.5.0(express@5.1.0)
       pkce-challenge: 4.1.0
       raw-body: 3.0.0
-      zod: 3.25.42
-      zod-to-json-schema: 3.24.3(zod@3.25.42)
+      zod: 3.25.43
+      zod-to-json-schema: 3.24.3(zod@3.25.43)
     transitivePeerDependencies:
       - supports-color
 
@@ -7605,7 +7608,7 @@ snapshots:
       '@tanstack/virtual-file-routes': 1.115.0
       prettier: 3.5.3
       tsx: 4.19.4
-      zod: 3.25.42
+      zod: 3.25.43
     optionalDependencies:
       '@tanstack/react-router': 1.120.13(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
@@ -8008,15 +8011,15 @@ snapshots:
       clean-stack: 2.2.0
       indent-string: 4.0.0
 
-  ai@4.3.16(react@19.1.0)(zod@3.25.42):
+  ai@4.3.16(react@19.1.0)(zod@3.25.43):
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.42)
-      '@ai-sdk/react': 1.2.12(react@19.1.0)(zod@3.25.42)
-      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.42)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.43)
+      '@ai-sdk/react': 1.2.12(react@19.1.0)(zod@3.25.43)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.43)
       '@opentelemetry/api': 1.9.0
       jsondiffpatch: 0.6.0
-      zod: 3.25.42
+      zod: 3.25.43
     optionalDependencies:
       react: 19.1.0
 
@@ -11677,12 +11680,14 @@ snapshots:
     dependencies:
       zod: 3.24.2
 
-  zod-to-json-schema@3.24.3(zod@3.25.42):
+  zod-to-json-schema@3.24.3(zod@3.25.43):
     dependencies:
-      zod: 3.25.42
+      zod: 3.25.43
 
   zod@3.24.2: {}
 
   zod@3.25.42: {}
+
+  zod@3.25.43: {}
 
   zwitch@2.0.4: {}
