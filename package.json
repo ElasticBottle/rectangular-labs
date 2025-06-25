@@ -37,7 +37,7 @@
     "@rectangular-labs/env": "workspace:*",
     "@rectangular-labs/typescript": "workspace:*",
     "@turbo/gen": "^2.5.4",
-    "sst": "3.17.5",
+    "sst": "3.17.8",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3"
   },
