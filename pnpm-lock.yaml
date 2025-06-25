@@ -60,8 +60,8 @@ importers:
         specifier: ^2.1.20
         version: 2.1.20
       hono:
-        specifier: ^4.7.11
-        version: 4.7.11
+        specifier: ^4.8.3
+        version: 4.8.3
     devDependencies:
       '@rectangular-labs/typescript':
         specifier: workspace:*
@@ -109,8 +109,8 @@ importers:
         specifier: ^1.121.21
         version: 1.121.21(@tanstack/react-router@1.121.21(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.2.6(@types/node@22.15.32)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.39.0)(tsx@4.20.3))(webpack@5.99.5)
       hono:
-        specifier: ^4.7.11
-        version: 4.7.11
+        specifier: ^4.8.3
+        version: 4.8.3
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -162,7 +162,7 @@ importers:
     dependencies:
       '@openauthjs/openauth':
         specifier: ^0.4.3
-        version: 0.4.3(arctic@2.3.4)(hono@4.7.11)
+        version: 0.4.3(arctic@2.3.4)(hono@4.8.3)
       '@rectangular-labs/env':
         specifier: workspace:*
         version: link:../env
@@ -170,8 +170,8 @@ importers:
         specifier: ^2.1.20
         version: 2.1.20
       hono:
-        specifier: ^4.7.11
-        version: 4.7.11
+        specifier: ^4.8.3
+        version: 4.8.3
     devDependencies:
       '@rectangular-labs/typescript':
         specifier: workspace:*
@@ -3719,12 +3719,12 @@ packages:
   header-case@1.0.1:
     resolution: {integrity: sha512-i0q9mkOeSuhXw6bGgiQCCBgY/jlZuV/7dZXyZ9c6LcBrqwvT8eT719E9uxE5LiZftdl+z81Ugbg/VvXV4OJOeQ==}
 
-  hono@4.7.11:
-    resolution: {integrity: sha512-rv0JMwC0KALbbmwJDEnxvQCeJh+xbS3KEWW5PC9cMJ08Ur9xgatI0HmtgYZfOdOSOeYsp5LO2cOhdI8cLEbDEQ==}
-    engines: {node: '>=16.9.0'}
-
   hono@4.7.4:
     resolution: {integrity: sha512-Pst8FuGqz3L7tFF+u9Pu70eI0xa5S3LPUmrNd5Jm8nTHze9FxLTK9Kaj5g/k4UcwuJSXTP65SyHOPLrffpcAJg==}
+    engines: {node: '>=16.9.0'}
+
+  hono@4.8.3:
+    resolution: {integrity: sha512-jYZ6ZtfWjzBdh8H/0CIFfCBHaFL75k+KMzaM177hrWWm2TWL39YMYaJgB74uK/niRc866NMlH9B8uCvIo284WQ==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@4.0.0:
@@ -6754,12 +6754,12 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@openauthjs/openauth@0.4.3(arctic@2.3.4)(hono@4.7.11)':
+  '@openauthjs/openauth@0.4.3(arctic@2.3.4)(hono@4.8.3)':
     dependencies:
       '@standard-schema/spec': 1.0.0-beta.3
       arctic: 2.3.4
       aws4fetch: 1.0.20
-      hono: 4.7.11
+      hono: 4.8.3
       jose: 5.9.6
 
   '@opentelemetry/api@1.9.0': {}
@@ -9355,9 +9355,9 @@ snapshots:
       no-case: 2.3.2
       upper-case: 1.1.3
 
-  hono@4.7.11: {}
-
   hono@4.7.4: {}
+
+  hono@4.8.3: {}
 
   html-encoding-sniffer@4.0.0:
     dependencies:
